@@ -41,7 +41,6 @@ public class GmailQuickstart {
         if (messages.isEmpty()) {
             System.out.println("No messages");
         } else {
-//            System.out.println("Messages:");
             for (int i = 3; i >= 0; i--) {
                 Message message = messages.get(i);
                 Message message1 = service.users().messages().get(user, message.getId()).setFormat("RAW").execute();
