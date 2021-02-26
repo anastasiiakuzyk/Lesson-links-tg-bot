@@ -5,6 +5,7 @@ import com.google.api.services.gmail.model.Message;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.net.URLEncoder;
 
 
 public class GmailQuickstart {
@@ -41,16 +42,17 @@ public class GmailQuickstart {
             System.out.println("No messages");
         } else {
 //            System.out.println("Messages:");
-            for (int i = 10; i >= 0; i--) {
+            for (int i = 3; i >= 0; i--) {
                 Message message = messages.get(i);
                 Message message1 = service.users().messages().get(user, message.getId()).setFormat("RAW").execute();
                 String codedMessage = new String(message1.decodeRaw());
-
+                String sh = "Шушура";
+                var shDecoded = URLEncoder.encode(sh).replace("%", "=");
                 if (codedMessage.contains("Kuzmenko")) {
                     if (codedMessage.contains(linkType)) {
                         nameLink.put("Алгоритми: ", getLink(codedMessage));
                     }
-                } else if (codedMessage.contains("reg")) {
+                } else if (codedMessage.contains(shDecoded)) {
                     if (codedMessage.contains(linkType)) {
                         nameLink.put("Моделювання: ", getLink(codedMessage));
                     }

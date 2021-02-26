@@ -25,6 +25,7 @@ public class Bot extends TelegramLongPollingBot {
             e.printStackTrace();
         }
     }
+    ArrayList<String> idList = new ArrayList<String>();
     static final String Mod = "Моделювання: ";
     static final String Alg = "Алгоритми: ";
     static final String Test2 = "Тестування(лек, 2): ";
@@ -38,18 +39,22 @@ public class Bot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         Message message = update.getMessage();
         if (message != null && message.hasText()) {
-            try {
-                scheduleMessageForStaticLinks(message, "26.02.2021 14:13", ArcP);
-                lessonsForWeek(message);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
             switch(message.getText()){
-                case "/start@lessonsTI-92Bot", "/start":
-                    sendMsg(message, decode("start"));
-                default:
-                    sendMsg(message, decode("Вы подписались на повторную отправку сообщений.."));
+                case "/start@lessonsTI_92Bot", "/start":
+                    if (this.idList.contains(message.getChatId().toString())) {
+                        break;
+                    } else {
+                        this.idList.add(message.getChatId().toString());
+                    }
+                    try {
+                        scheduleMessageForNonStaticLinks(message, "26.02.2021 14:13", Mod);
+                        lessonsForWeek(message);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    break;
             }
+
         }
 
     }
