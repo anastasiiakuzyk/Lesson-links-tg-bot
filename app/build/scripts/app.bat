@@ -71,7 +71,7 @@ set CLASSPATH=%APP_HOME%\lib\app-1.0.jar;%APP_HOME%\lib\google-api-services-gmai
 
 
 @rem Execute app
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %APP_OPTS%  -classpath "%CLASSPATH%" Bot %*
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %APP_OPTS%  -classpath "%CLASSPATH%" demo.Bot %*
 
 :end
 @rem End local scope for the variables with windows NT shell
