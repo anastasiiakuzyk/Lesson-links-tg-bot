@@ -125,7 +125,6 @@ public class Bot extends TelegramLongPollingBot {
         Timer timer = new Timer("Timer");
         Date date = new SimpleDateFormat("dd.MM.yyyy HH:mm").parse(time);
 
-
         timer.schedule(task, date, period);
     }
 
@@ -179,8 +178,8 @@ public class Bot extends TelegramLongPollingBot {
         scheduleMessageForNonStaticLinks(message,"11.03.2021 08:27", Alg, twoWeeks);
         scheduleMessageForStaticLinks(message,"12.03.2021 08:27", LogicP, twoWeeks);
 
-        scheduleMessageForStaticLinks(message,"27.02.2021 15:30", Log, twoWeeks);
-        scheduleMessageForStaticLinks(message,"27.02.2021 15:35", PsyConf, twoWeeks);
+        scheduleMessageForStaticLinks(message,"28.02.2021 13:15", Log, twoWeeks);
+        scheduleMessageForStaticLinks(message,"28.02.2021 13:20", PsyConf, twoWeeks);
 
     }
 
