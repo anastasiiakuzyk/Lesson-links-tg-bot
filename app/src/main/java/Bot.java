@@ -154,9 +154,9 @@ public class Bot extends TelegramLongPollingBot {
     public void lessonsForWeek(Message message) throws Exception {
         long oneWeek = 1000L*60L*60L*24L*7L;
         long twoWeeks = oneWeek*2L;
-        scheduleMessageForStaticLinks(message,"01.03.2021 10:22", Test2, oneWeek);
-        scheduleMessageForStaticLinks(message,"01.03.2021 12:17", Engl, oneWeek);
-        scheduleMessageForStaticLinks(message,"01.03.2021 14:12", Test4, twoWeeks);
+        scheduleMessageForStaticLinks(message,"08.03.2021 10:22", Test2, oneWeek);
+        scheduleMessageForStaticLinks(message,"08.03.2021 12:17", Engl, oneWeek);
+        scheduleMessageForStaticLinks(message,"15.03.2021 14:12", Test4, twoWeeks);
 
         scheduleMessageForStaticLinks(message,"02.03.2021 08:27", Phil, twoWeeks);
         scheduleMessageForNonStaticLinks(message,"02.03.2021 10:22", Mod, oneWeek);
@@ -179,8 +179,8 @@ public class Bot extends TelegramLongPollingBot {
         scheduleMessageForNonStaticLinks(message,"11.03.2021 08:27", Alg, twoWeeks);
         scheduleMessageForStaticLinks(message,"12.03.2021 08:27", LogicP, twoWeeks);
 
-        scheduleMessageForStaticLinks(message,"01.03.2021 23:50", Log, twoWeeks);
-        scheduleMessageForStaticLinks(message,"01.03.2021 12:17", PsyConf, twoWeeks);
+        scheduleMessageForStaticLinks(message,"13.03.2021 10:22", Log, twoWeeks);
+        scheduleMessageForStaticLinks(message,"13.03.2021 12:17", PsyConf, twoWeeks);
 
     }
 
