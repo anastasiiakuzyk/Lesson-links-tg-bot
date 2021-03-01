@@ -1,8 +1,8 @@
 Bot.java
- Bot
- Bot$1
- Bot$2
+ demo.Bot
+ demo.Bot$1
+ demo.Bot$2
 Connection.java
- Connection
+ demo.Connection
 GmailQuickstart.java
- GmailQuickstart
+ demo.GmailQuickstart
