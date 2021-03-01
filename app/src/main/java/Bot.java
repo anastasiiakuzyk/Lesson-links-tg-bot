@@ -180,7 +180,7 @@ public class Bot extends TelegramLongPollingBot {
         scheduleMessageForStaticLinks(message,"12.03.2021 08:27", LogicP, twoWeeks);
 
         scheduleMessageForStaticLinks(message,"13.03.2021 10:22", Log, twoWeeks);
-        scheduleMessageForStaticLinks(message,"02.03.2021 00:03", PsyConf, twoWeeks);
+        scheduleMessageForStaticLinks(message,"13.03.2021 12:17", PsyConf, twoWeeks);
 
     }
 
