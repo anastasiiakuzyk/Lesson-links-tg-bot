@@ -55,6 +55,8 @@ class Connection{
                 .setAccessType("offline")
                 .build();
         LocalServerReceiver receiver = new LocalServerReceiver.Builder().setHost("165.22.75.15").setPort(8888).build();
+        var uri = receiver.getRedirectUri();
+        System.out.println(uri);
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
 
