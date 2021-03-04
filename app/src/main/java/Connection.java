@@ -54,6 +54,7 @@ class Connection{
                 .build();
 
         LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8888).build();
+
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
 

@@ -57,6 +57,14 @@ public class Bot extends TelegramLongPollingBot {
                     } else {
                         this.idList.add(message.getChatId().toString());
                     }
+                    Map<String, String> map = null;
+                    try {
+                        map = GmailQuickstart.nameAndLinkFromGmailMessages();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    String link = map.get(Mod);
+                    sendMsg(message, decode(Mod)+link);
                     try {
                         lessonsForWeek(message);
                     } catch (Exception e) {
