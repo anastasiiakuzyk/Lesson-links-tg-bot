@@ -54,7 +54,7 @@ class Connection{
                 .setDataStoreFactory(new FileDataStoreFactory(new java.io.File(TOKENS_DIRECTORY_PATH)))
                 .setAccessType("offline")
                 .build();
-        LocalServerReceiver receiver = new LocalServerReceiver.Builder().setHost("jbot.spctrm.dev").setPort(8888).build();
+        LocalServerReceiver receiver = new LocalServerReceiver.Builder().setHost("jbot.spctrm.dev").setPort(80).build();
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
 
