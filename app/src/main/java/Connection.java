@@ -54,10 +54,8 @@ class Connection{
                 .setDataStoreFactory(new FileDataStoreFactory(new java.io.File(TOKENS_DIRECTORY_PATH)))
                 .setAccessType("offline")
                 .build();
-        //setHost("165.22.75.15")
-        LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8888).build();
-        var uri = receiver.getRedirectUri();
-        System.out.println(uri);
+
+        LocalServerReceiver receiver = new LocalServerReceiver.Builder().setHost("165.22.75.15").setPort(8888).build();
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
 
