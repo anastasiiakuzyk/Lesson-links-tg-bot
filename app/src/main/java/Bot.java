@@ -1,5 +1,3 @@
-package demo;
-
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.TelegramBotsApi;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
@@ -59,14 +57,6 @@ public class Bot extends TelegramLongPollingBot {
                     } else {
                         this.idList.add(message.getChatId().toString());
                     }
-                    Map<String, String> map = null;
-                    try {
-                        map = GmailQuickstart.nameAndLinkFromGmailMessages();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    String link = map.get(Mod);
-                    sendMsg(message, decode(Mod)+link);
                     try {
                         lessonsForWeek(message);
                     } catch (Exception e) {
@@ -166,15 +156,15 @@ public class Bot extends TelegramLongPollingBot {
         scheduleMessageForStaticLinks(message,"08.03.2021 12:17", Engl, oneWeek);
         scheduleMessageForStaticLinks(message,"15.03.2021 14:12", Test4, twoWeeks);
 
-        //scheduleMessageForStaticLinks(message,"02.03.2021 08:27", Phil, twoWeeks);
-       // scheduleMessageForNonStaticLinks(message,"02.03.2021 10:22", Mod, oneWeek);
-        //scheduleMessageForNonStaticLinks(message,"02.03.2021 12:17", Alg, oneWeek);
+        scheduleMessageForStaticLinks(message,"16.03.2021 08:27", Phil, twoWeeks);
+        scheduleMessageForNonStaticLinks(message,"09.03.2021 10:22", Mod, oneWeek);
+        scheduleMessageForNonStaticLinks(message,"09.03.2021 12:17", Alg, oneWeek);
 
-        scheduleMessageForStaticLinks(message,"03.03.2021 10:22", Arc, oneWeek);
-        scheduleMessageForStaticLinks(message,"03.03.2021 12:17", TestP, oneWeek);
+        scheduleMessageForStaticLinks(message,"10.03.2021 10:22", Arc, oneWeek);
+        scheduleMessageForStaticLinks(message,"10.03.2021 12:17", TestP, oneWeek);
 
-        scheduleMessageForNonStaticLinks(message,"04.03.2021 10:22", Mod, oneWeek);
-        scheduleMessageForStaticLinks(message,"04.03.2021 12:17", Scrypt, oneWeek);
+        scheduleMessageForNonStaticLinks(message,"11.03.2021 10:22", Mod, oneWeek);
+        scheduleMessageForStaticLinks(message,"11.03.2021 12:17", Scrypt, oneWeek);
 
         scheduleMessageForStaticLinks(message,"05.03.2021 08:27", Logic, twoWeeks);
         scheduleMessageForStaticLinks(message,"05.03.2021 10:22", SocPsy, twoWeeks);
