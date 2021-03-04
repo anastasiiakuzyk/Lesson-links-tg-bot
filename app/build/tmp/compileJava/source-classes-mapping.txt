@@ -1,8 +1,0 @@
-Bot.java
- demo.Bot
- demo.Bot$1
- demo.Bot$2
-Connection.java
- demo.Connection
-GmailQuickstart.java
- demo.GmailQuickstart
