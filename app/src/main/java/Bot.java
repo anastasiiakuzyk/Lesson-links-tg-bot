@@ -158,7 +158,7 @@ public class Bot extends TelegramLongPollingBot {
 
         scheduleMessageForStaticLinks(message,"16.03.2021 08:27", Phil, twoWeeks);
         scheduleMessageForNonStaticLinks(message,"16.03.2021 10:22", Mod, oneWeek);
-        scheduleMessageForNonStaticLinks(message,"16.03.2021 12:17", Alg, oneWeek);
+        scheduleMessageForNonStaticLinks(message,"16.03.2021 12:21", Alg, oneWeek);
 
         scheduleMessageForStaticLinks(message,"17.03.2021 10:22", Arc, oneWeek);
         scheduleMessageForStaticLinks(message,"17.03.2021 12:17", TestP, oneWeek);
@@ -174,7 +174,7 @@ public class Bot extends TelegramLongPollingBot {
         scheduleMessageForStaticLinks(message,"20.03.2021 12:17", PsyConfP, twoWeeks);
 
         scheduleMessageForStaticLinks(message,"22.03.2021 14:12", TestP, twoWeeks);
-        scheduleMessageForNonStaticLinks(message,"25.03.2021 08:27", Alg, twoWeeks);
+        scheduleMessageForNonStaticLinks(message,"25.03.2021 08:31", Alg, twoWeeks);
         scheduleMessageForStaticLinks(message,"26.03.2021 08:27", LogicP, twoWeeks);
 
         scheduleMessageForStaticLinks(message,"27.03.2021 10:22", Log, twoWeeks);

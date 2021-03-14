@@ -50,7 +50,13 @@ public class GmailQuickstart {
                 String sh = "Шушура";
                 var shDecoded = URLEncoder.encode(sh).replace("%", "=");
                 var splited = codedMessage.split("\r\n\r\n");
-                var codedAfterBase64Bytes = Base64.getMimeDecoder().decode(splited[splited.length - 1]);
+
+                byte[] codedAfterBase64Bytes = new byte[0];
+                try {
+                    codedAfterBase64Bytes = Base64.getMimeDecoder().decode(splited[splited.length - 1]);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 String codedAfterBase64 = new String(codedAfterBase64Bytes, StandardCharsets.UTF_8);
                 if (codedMessage.contains("Kuzmenko")) {
                     if (codedMessage.contains(linkType)) {
