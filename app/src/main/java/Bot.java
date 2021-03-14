@@ -25,7 +25,7 @@ public class Bot extends TelegramLongPollingBot {
             e.printStackTrace();
         }
     }
-    ArrayList<String> idList = new ArrayList<String>();
+    ArrayList<String> idList = new ArrayList<>();
 
     static final String Phil = "Філософія: ";
     static final String Logic = "Logic(лек): ";
