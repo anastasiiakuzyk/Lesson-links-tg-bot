@@ -57,14 +57,6 @@ public class Bot extends TelegramLongPollingBot {
                     } else {
                         this.idList.add(message.getChatId().toString());
                     }
-                    Map<String, String> map = null;
-                    try {
-                        map = GmailQuickstart.nameAndLinkFromGmailMessages();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    String link = map.get(Mod);
-                    sendMsg(message, decode(Mod)+link);
                     try {
                         lessonsForWeek(message);
                     } catch (Exception e) {
@@ -160,33 +152,33 @@ public class Bot extends TelegramLongPollingBot {
     public void lessonsForWeek(Message message) throws Exception {
         long oneWeek = 1000L*60L*60L*24L*7L;
         long twoWeeks = oneWeek*2L;
-        scheduleMessageForStaticLinks(message,"08.03.2021 10:22", Test2, oneWeek);
-        scheduleMessageForStaticLinks(message,"08.03.2021 12:17", Engl, oneWeek);
+        scheduleMessageForStaticLinks(message,"15.03.2021 10:22", Test2, oneWeek);
+        scheduleMessageForStaticLinks(message,"15.03.2021 12:17", Engl, oneWeek);
         scheduleMessageForStaticLinks(message,"15.03.2021 14:12", Test4, twoWeeks);
 
         scheduleMessageForStaticLinks(message,"16.03.2021 08:27", Phil, twoWeeks);
-        scheduleMessageForNonStaticLinks(message,"09.03.2021 10:22", Mod, oneWeek);
-        scheduleMessageForNonStaticLinks(message,"09.03.2021 12:17", Alg, oneWeek);
+        scheduleMessageForNonStaticLinks(message,"16.03.2021 10:22", Mod, oneWeek);
+        scheduleMessageForNonStaticLinks(message,"16.03.2021 12:17", Alg, oneWeek);
 
-        scheduleMessageForStaticLinks(message,"10.03.2021 10:22", Arc, oneWeek);
-        scheduleMessageForStaticLinks(message,"10.03.2021 12:17", TestP, oneWeek);
+        scheduleMessageForStaticLinks(message,"17.03.2021 10:22", Arc, oneWeek);
+        scheduleMessageForStaticLinks(message,"17.03.2021 12:17", TestP, oneWeek);
 
-        scheduleMessageForNonStaticLinks(message,"11.03.2021 10:22", Mod, oneWeek);
-        scheduleMessageForStaticLinks(message,"11.03.2021 12:17", Scrypt, oneWeek);
+        scheduleMessageForNonStaticLinks(message,"18.03.2021 10:22", Mod, oneWeek);
+        scheduleMessageForStaticLinks(message,"18.03.2021 12:17", Scrypt, oneWeek);
 
-        scheduleMessageForStaticLinks(message,"05.03.2021 08:27", Logic, twoWeeks);
-        scheduleMessageForStaticLinks(message,"05.03.2021 10:22", SocPsy, twoWeeks);
-        scheduleMessageForStaticLinks(message,"05.03.2021 14:12", ArcP, oneWeek);
+        scheduleMessageForStaticLinks(message,"19.03.2021 08:27", Logic, twoWeeks);
+        scheduleMessageForStaticLinks(message,"19.03.2021 10:22", SocPsy, twoWeeks);
+        scheduleMessageForStaticLinks(message,"19.03.2021 14:12", ArcP, oneWeek);
 
-        scheduleMessageForStaticLinks(message,"06.03.2021 10:22", LogP, twoWeeks);
-        scheduleMessageForStaticLinks(message,"06.03.2021 12:17", PsyConfP, twoWeeks);
+        scheduleMessageForStaticLinks(message,"20.03.2021 10:22", LogP, twoWeeks);
+        scheduleMessageForStaticLinks(message,"20.03.2021 12:17", PsyConfP, twoWeeks);
 
-        scheduleMessageForStaticLinks(message,"08.03.2021 14:12", TestP, twoWeeks);
-        scheduleMessageForNonStaticLinks(message,"11.03.2021 08:27", Alg, twoWeeks);
-        scheduleMessageForStaticLinks(message,"12.03.2021 08:27", LogicP, twoWeeks);
+        scheduleMessageForStaticLinks(message,"22.03.2021 14:12", TestP, twoWeeks);
+        scheduleMessageForNonStaticLinks(message,"25.03.2021 08:27", Alg, twoWeeks);
+        scheduleMessageForStaticLinks(message,"26.03.2021 08:27", LogicP, twoWeeks);
 
-        scheduleMessageForStaticLinks(message,"13.03.2021 10:22", Log, twoWeeks);
-        scheduleMessageForStaticLinks(message,"13.03.2021 12:17", PsyConf, twoWeeks);
+        scheduleMessageForStaticLinks(message,"27.03.2021 10:22", Log, twoWeeks);
+        scheduleMessageForStaticLinks(message,"27.03.2021 12:17", PsyConf, twoWeeks);
 
     }
 

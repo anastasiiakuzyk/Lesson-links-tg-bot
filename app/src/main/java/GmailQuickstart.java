@@ -2,6 +2,8 @@ import com.google.api.services.gmail.Gmail;
 import com.google.api.services.gmail.model.ListMessagesResponse;
 import com.google.api.services.gmail.model.Message;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,12 +43,15 @@ public class GmailQuickstart {
         if (messages.isEmpty()) {
             System.out.println("No messages");
         } else {
-            for (int i = 3; i >= 0; i--) {
+            for (int i = 10; i >= 0; i--) {
                 Message message = messages.get(i);
                 Message message1 = service.users().messages().get(user, message.getId()).setFormat("RAW").execute();
-                String codedMessage = new String(message1.decodeRaw());
+                String codedMessage = new String(message1.decodeRaw(), StandardCharsets.UTF_8);
                 String sh = "Шушура";
                 var shDecoded = URLEncoder.encode(sh).replace("%", "=");
+                var splited = codedMessage.split("\r\n\r\n");
+                var codedAfterBase64Bytes = Base64.getMimeDecoder().decode(splited[splited.length - 1]);
+                String codedAfterBase64 = new String(codedAfterBase64Bytes, StandardCharsets.UTF_8);
                 if (codedMessage.contains("Kuzmenko")) {
                     if (codedMessage.contains(linkType)) {
                         nameLink.put("Алгоритми: ", getLink(codedMessage));
@@ -55,11 +60,14 @@ public class GmailQuickstart {
                     if (codedMessage.contains(linkType)) {
                         nameLink.put("Моделювання: ", getLink(codedMessage));
                     }
+                } else if (codedAfterBase64.contains(sh)) {
+                    if (codedAfterBase64.contains(linkType)) {
+                        nameLink.put("Моделювання: ", getLink(codedAfterBase64));
+                    }
                 }
             }
         }
-        for (Map.Entry<String , String> entry: nameLink.entrySet()
-             ) {
+        for (Map.Entry<String , String> entry: nameLink.entrySet()) {
             System.out.println(entry.getKey() + entry.getValue());
         }
         return nameLink;
