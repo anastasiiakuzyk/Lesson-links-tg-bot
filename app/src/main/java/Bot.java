@@ -59,6 +59,11 @@ public class Bot extends TelegramLongPollingBot {
                         this.idList.add(message.getChatId().toString());
                     }
                     try {
+                        GmailQuickstart.nameAndLinkFromGmailMessages();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    try {
                         lessonsForWeek(message);
                     } catch (Exception e) {
                         e.printStackTrace();
