@@ -55,6 +55,7 @@ public class Bot extends TelegramLongPollingBot {
                     if (this.idList.contains(message.getChatId().toString())) {
                         break;
                     } else {
+                        sendMsg(message, "Привет! Спасибо за активацию.");
                         this.idList.add(message.getChatId().toString());
                     }
                     try {
