@@ -163,8 +163,8 @@ public class Bot extends TelegramLongPollingBot {
         scheduleMessageForStaticLinks(message,"29.03.2021 14:12", Test4, twoWeeks);
 
         scheduleMessageForStaticLinks(message,"30.03.2021 08:27", Phil, twoWeeks);
-        scheduleMessageForNonStaticLinks(message,"16.03.2021 10:22", Mod, oneWeek);
-        scheduleMessageForNonStaticLinks(message,"16.03.2021 12:21", Alg, oneWeek);
+        scheduleMessageForNonStaticLinks(message,"23.03.2021 10:22", Mod, oneWeek);
+        scheduleMessageForNonStaticLinks(message,"23.03.2021 12:21", Alg, oneWeek);
 
         scheduleMessageForStaticLinks(message,"17.03.2021 10:22", Arc, oneWeek);
         scheduleMessageForStaticLinks(message,"17.03.2021 12:17", TestP, oneWeek);
