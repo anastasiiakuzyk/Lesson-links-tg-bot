@@ -15,8 +15,7 @@ public class GmailQuickstart {
     static final String linkType = "https://meet.google.com/";
 
     public static void main(String... args) throws Exception {
-        System.out.println(nameAndLinkFromGmailMessages());
-
+        System.out.println(nameAndLinkFromGmailMessages(10));
     }
 
     static String getLink(String message){
@@ -33,7 +32,7 @@ public class GmailQuickstart {
         return linkType+link;
     }
 
-    static Map<String, String> nameAndLinkFromGmailMessages() throws Exception{
+    static Map<String, String> nameAndLinkFromGmailMessages(int iterNum) throws Exception{
         Gmail service = Connection.service();
         Map<String, String > nameLink = new HashMap<>();
 
@@ -43,7 +42,7 @@ public class GmailQuickstart {
         if (messages.isEmpty()) {
             System.out.println("No messages");
         } else {
-            for (int i = 12; i >= 0; i--) {
+            for (int i = iterNum; i >= 0; i--) {
                 Message message = messages.get(i);
                 Message message1 = service.users().messages().get(user, message.getId()).setFormat("RAW").execute();
                 String codedMessage = new String(message1.decodeRaw(), StandardCharsets.UTF_8);
