@@ -43,11 +43,13 @@ public class GmailQuickstart {
         if (messages.isEmpty()) {
             System.out.println("No messages");
         } else {
-            for (int i = 10; i >= 0; i--) {
+            for (int i = 12; i >= 0; i--) {
                 Message message = messages.get(i);
                 Message message1 = service.users().messages().get(user, message.getId()).setFormat("RAW").execute();
                 String codedMessage = new String(message1.decodeRaw(), StandardCharsets.UTF_8);
                 String sh = "Шушура";
+                String kz = "Kuzmenko";
+                var kzDecoded = URLEncoder.encode(kz).replace("%", "=");
                 var shDecoded = URLEncoder.encode(sh).replace("%", "=");
                 var splited = codedMessage.split("\r\n\r\n");
 
@@ -58,9 +60,21 @@ public class GmailQuickstart {
                     e.printStackTrace();
                 }
                 String codedAfterBase64 = new String(codedAfterBase64Bytes, StandardCharsets.UTF_8);
-                if (codedMessage.contains("Kuzmenko")) {
+                if (codedMessage.contains(kz)) {
                     if (codedMessage.contains(linkType)) {
                         nameLink.put("Алгоритми: ", getLink(codedMessage));
+                    }
+                } else if (codedMessage.contains(kzDecoded)) {
+                    if (codedMessage.contains(linkType)) {
+                        nameLink.put("Алгоритми: ", getLink(codedMessage));
+                    }
+                } else if (codedAfterBase64.contains(kz)) {
+                    if (codedAfterBase64.contains(linkType)) {
+                        nameLink.put("Алгоритми: ", getLink(codedMessage));
+                    }
+                }else if (codedMessage.contains(sh)) {
+                    if (codedMessage.contains(linkType)) {
+                        nameLink.put("Моделювання: ", getLink(codedMessage));
                     }
                 } else if (codedMessage.contains(shDecoded)) {
                     if (codedMessage.contains(linkType)) {

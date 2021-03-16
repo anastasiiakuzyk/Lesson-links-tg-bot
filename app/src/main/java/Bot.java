@@ -59,6 +59,11 @@ public class Bot extends TelegramLongPollingBot {
                         this.idList.add(message.getChatId().toString());
                     }
                     try {
+                        GmailQuickstart.nameAndLinkFromGmailMessages();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    try {
                         lessonsForWeek(message);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -157,8 +162,8 @@ public class Bot extends TelegramLongPollingBot {
         scheduleMessageForStaticLinks(message,"22.03.2021 12:17", Engl, oneWeek);
         scheduleMessageForStaticLinks(message,"29.03.2021 14:12", Test4, twoWeeks);
 
-        scheduleMessageForStaticLinks(message,"16.03.2021 08:27", Phil, twoWeeks);
-        scheduleMessageForNonStaticLinks(message,"16.03.2021 10:22", Mod, oneWeek);
+        scheduleMessageForStaticLinks(message,"30.03.2021 08:27", Phil, twoWeeks);
+        scheduleMessageForNonStaticLinks(message,"23.03.2021 10:22", Mod, oneWeek);
         scheduleMessageForNonStaticLinks(message,"16.03.2021 12:21", Alg, oneWeek);
 
         scheduleMessageForStaticLinks(message,"17.03.2021 10:22", Arc, oneWeek);
