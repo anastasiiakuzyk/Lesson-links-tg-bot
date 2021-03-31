@@ -12,29 +12,27 @@ import java.net.URLEncoder;
 
 public class GmailQuickstart {
 
-    static final String linkType = "https://meet.google.com/";
+    static final String linkMeet = "https://meet.google.com/";
 
-    public static void main(String... args) throws Exception {
-        System.out.println(nameAndLinkFromGmailMessages(10));
-    }
-
-    static String getLink(String message){
+    static String getLink(String message, String linkType) {
         int start = message.indexOf(linkType);
-        int end = start+linkType.length();
+        int end = start + linkType.length();
         String link = "";
         String test = linkType;
         for (int j = end; j < message.length(); j++) {
+
             test += message.charAt(j);
-            if(test.matches("https://meet.google.com/[a-z-]*")) {
+            if (test.matches("https://meet.google.com/[a-z-]*")) {
                 link += message.charAt(j);
+
             } else break;
         }
-        return linkType+link;
+        return linkType + link;
     }
 
-    static Map<String, String> nameAndLinkFromGmailMessages(int iterNum) throws Exception{
+    static Map<String, String> nameAndLinkFromGmailMessages(int iterNum) throws Exception {
         Gmail service = Connection.service();
-        Map<String, String > nameLink = new HashMap<>();
+        Map<String, String> nameLink = new HashMap<>();
 
         String user = "me";
         ListMessagesResponse listMessagesResponse = service.users().messages().list(user).execute();
@@ -60,33 +58,33 @@ public class GmailQuickstart {
                 }
                 String codedAfterBase64 = new String(codedAfterBase64Bytes, StandardCharsets.UTF_8);
                 if (codedMessage.contains(kz)) {
-                    if (codedMessage.contains(linkType)) {
-                        nameLink.put("Алгоритми: ", getLink(codedMessage));
+                    if (codedMessage.contains(linkMeet)) {
+                        nameLink.put("Алгоритми: ", getLink(codedMessage, linkMeet));
                     }
                 } else if (codedMessage.contains(kzDecoded)) {
-                    if (codedMessage.contains(linkType)) {
-                        nameLink.put("Алгоритми: ", getLink(codedMessage));
+                    if (codedMessage.contains(linkMeet)) {
+                        nameLink.put("Алгоритми: ", getLink(codedMessage, linkMeet));
                     }
                 } else if (codedAfterBase64.contains(kz)) {
-                    if (codedAfterBase64.contains(linkType)) {
-                        nameLink.put("Алгоритми: ", getLink(codedMessage));
+                    if (codedAfterBase64.contains(linkMeet)) {
+                        nameLink.put("Алгоритми: ", getLink(codedMessage, linkMeet));
                     }
-                }else if (codedMessage.contains(sh)) {
-                    if (codedMessage.contains(linkType)) {
-                        nameLink.put("Моделювання: ", getLink(codedMessage));
+                } else if (codedMessage.contains(sh)) {
+                    if (codedMessage.contains(linkMeet)) {
+                        nameLink.put("Моделювання: ", getLink(codedMessage, linkMeet));
                     }
                 } else if (codedMessage.contains(shDecoded)) {
-                    if (codedMessage.contains(linkType)) {
-                        nameLink.put("Моделювання: ", getLink(codedMessage));
+                    if (codedMessage.contains(linkMeet)) {
+                        nameLink.put("Моделювання: ", getLink(codedMessage, linkMeet));
                     }
                 } else if (codedAfterBase64.contains(sh)) {
-                    if (codedAfterBase64.contains(linkType)) {
-                        nameLink.put("Моделювання: ", getLink(codedAfterBase64));
+                    if (codedAfterBase64.contains(linkMeet)) {
+                        nameLink.put("Моделювання: ", getLink(codedAfterBase64, linkMeet));
                     }
                 }
             }
         }
-        for (Map.Entry<String , String> entry: nameLink.entrySet()) {
+        for (Map.Entry<String, String> entry : nameLink.entrySet()) {
             System.out.println(entry.getKey() + entry.getValue());
         }
         return nameLink;
